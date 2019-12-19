@@ -10,10 +10,8 @@ from setuptools import setup
 
 here = realpath(dirname(__file__))
 
-with open(join(here, 'README.md'), 'r') as readme_fh:
+with open(join(here, 'README.rst'), 'r') as readme_fh:
     README = readme_fh.read()
-with open(join(here, 'docs', 'changes.rst'), 'r') as changes_fh:
-    CHANGES = changes_fh.read()
 
 dist = setup(
     python_requires='>3.6.0',
@@ -23,8 +21,9 @@ dist = setup(
     author="Aleksey Marin",
     author_email="asmadews@gmail.com",
     url="",
-    description=README,
-    long_description=README + "\n\n" + CHANGES,
+    description="Indexed text file lines access enabler",
+    long_description=README,
+    long_description_content_type='text/x-rst',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
